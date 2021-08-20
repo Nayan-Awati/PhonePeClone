@@ -95,25 +95,19 @@ class HomeFragment : Fragment() {
 
 
     private fun setUpViewPager() {
-        offerList = ArrayList<Int>()
+        offerList = ArrayList()
         offerList.add(R.drawable.jsi)
         offerList.add(R.drawable.jse1)
         offerList.add(R.drawable.jse2)
 
         val viewPagerAdapter= HomeViewPagerAdapter()
-        viewPagerAdapter.setData(offerList)
-        viewPager.adapter
+        viewPagerAdapter.setData(requireContext(),offerList)
+        viewPager.adapter = viewPagerAdapter
         addBottomDots(0)
-
-
-
-
-
-        
     }
 
     private fun addBottomDots(currentpage: Int) {
-        var mTextDot=ArrayList<TextView>()
+        var mTextDot=ArrayList<TextView>(offerList.size)
         lnrLyt.removeAllViews()
 
         for(i in 0 until mTextDot.size){

@@ -6,7 +6,7 @@ import android.view.Menu
 import android.view.MenuItem
 import android.widget.TextView
 import android.widget.Toast
-import android.widget.Toolbar
+import androidx.appcompat.widget.Toolbar
 import androidx.fragment.app.Fragment
 import androidx.fragment.app.FragmentTransaction
 import com.example.phonepeclone.R
@@ -19,11 +19,11 @@ class MainActivity : AppCompatActivity() {
     private lateinit var mToolbar:Toolbar
     private lateinit var toolbarText:TextView
     private lateinit var bottomNavigationView: BottomNavigationView
-    private  var homeFragment = HomeFragment()
-    private  var accountFragment= AccountFragment()
-    private  var offersFragment = OfferFragment()
-    private  var paymentFragment = PaymentFragment()
-    private  var transactionFragment =  TransactionFragment()
+    private  lateinit var homeFragment : HomeFragment
+    private  lateinit var accountFragment: AccountFragment
+    private  lateinit var offersFragment : OfferFragment
+    private  lateinit var paymentFragment : PaymentFragment
+    private  lateinit var transactionFragment :  TransactionFragment
 
 
 
@@ -33,6 +33,8 @@ class MainActivity : AppCompatActivity() {
         setContentView(R.layout.activity_main)
         initViews()
 
+        //setSupportActionBar(mToolbar)
+        setSupportActionBar(toolbar)
         getSupportActionBar()?.setTitle("")
         toolbarText.setText("PhonePe")
 
@@ -62,7 +64,7 @@ class MainActivity : AppCompatActivity() {
                 }
 
             }
-            true
+            false
         }
 
         BottomNavHelp().removeShiftMode(bottomNavigationView)
@@ -77,11 +79,11 @@ class MainActivity : AppCompatActivity() {
         mToolbar = findViewById(R.id.toolbar)
         toolbarText = findViewById(R.id.title_toolbar)
         bottomNavigationView = findViewById(R.id.navigation)
-        homeFragment = HomeFragment.newInstance()
-        accountFragment = AccountFragment.newInstance()
-        offersFragment = OfferFragment.newInstance()
-        paymentFragment = PaymentFragment.newInstance()
-        transactionFragment = TransactionFragment.newInstance()
+        homeFragment = HomeFragment()
+        accountFragment = AccountFragment()
+        offersFragment = OfferFragment()
+        paymentFragment = PaymentFragment()
+        transactionFragment = TransactionFragment()
     }
 
     private fun setUpFragment(fragment: Fragment) {

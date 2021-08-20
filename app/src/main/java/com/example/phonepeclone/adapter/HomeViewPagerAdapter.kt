@@ -15,8 +15,9 @@ class HomeViewPagerAdapter : PagerAdapter() {
     override fun getCount(): Int {
         return offerList.size
     }
-    fun setData(arrData : List<Int>){
+    fun setData(contxt:Context, arrData : List<Int>){
         offerList = arrData as ArrayList<Int>
+        ctx = contxt
     }
 
     override fun isViewFromObject(view: View, `object`: Any): Boolean {
@@ -24,7 +25,7 @@ class HomeViewPagerAdapter : PagerAdapter() {
     }
 
     override fun instantiateItem(container: ViewGroup, position: Int): Any {
-        ctx = container.context
+        //ctx = container.context
         val view = LayoutInflater.from(ctx).inflate(R.layout.item_layout_offer,container,false)
         val txOffer :ImageView= view.findViewById(R.id.containZone)
         txOffer.setImageResource(offerList.get(position))
