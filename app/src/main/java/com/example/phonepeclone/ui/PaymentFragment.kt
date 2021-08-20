@@ -37,14 +37,14 @@ class PaymentFragment : Fragment() {
         val view:View = inflater.inflate(R.layout.fragment_payment, container, false)
         initViews(view)
         tabLayout.addOnTabSelectedListener(object : TabLayout.OnTabSelectedListener{
-            override fun onTabSelected(tab: TabLayout.Tab?) {
-                val position = tab?.position
+            override fun onTabSelected(tab: TabLayout.Tab) {
+                val position = tab.position
                 if(position == 0){
-                    Toast.makeText(ctx, "UPI ID feature", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "UPI ID feature", Toast.LENGTH_SHORT).show()
                 }
                 else{
 
-                    Toast.makeText(ctx, "QR Scanner feature", Toast.LENGTH_SHORT).show()
+                    Toast.makeText(requireContext(), "QR Scanner feature", Toast.LENGTH_SHORT).show()
                 }
             }
 

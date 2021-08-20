@@ -54,7 +54,7 @@ class MainActivity : AppCompatActivity() {
                     toolbarText.text= "Accounts"
                     setUpFragment(accountFragment)
                 }
-                R.id.navigation_account->{
+                R.id.navigation_payment->{
                     toolbarText.text= "Scan & Pay"
                     setUpFragment(paymentFragment)
                 }
